@@ -92,13 +92,25 @@ class PanelGraficosView(BaseView):
         
         conteo_estados = Counter(estados_lista)
         conteo_fallas = Counter(fallas_lista)
+
+        # Resumen rápido para que el usuario vea el estado del taller al instante.
+        # Se normaliza el texto para evitar errores por mayúsculas, espacios o tildes.
+        estados_normalizados = [estado.strip().lower() for estado in estados_lista]
+        total_ordenes = len(ordenes)
+        ordenes_listas = sum(estado == "listo" for estado in estados_normalizados)
+        ordenes_entregadas = sum(estado == "entregado" for estado in estados_normalizados)
+        ordenes_pendientes = total_ordenes - ordenes_entregadas
         
         return self.render_template(
             "graficos.html",
             estados_labels=list(conteo_estados.keys()),
             estados_valores=list(conteo_estados.values()),
             fallas_labels=list(conteo_fallas.keys()),
-            fallas_valores=list(conteo_fallas.values())
+            fallas_valores=list(conteo_fallas.values()),
+            total_ordenes=total_ordenes,
+            ordenes_pendientes=ordenes_pendientes,
+            ordenes_listas=ordenes_listas,
+            ordenes_entregadas=ordenes_entregadas
         )
 
 # =========================================================

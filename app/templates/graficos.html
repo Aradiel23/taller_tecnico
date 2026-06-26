@@ -6,6 +6,33 @@
             <h3 class="card-title mb-0"><i class="fa fa-chart-pie"></i> Panel de Analíticas Avanzadas</h3>
         </div>
         <div class="card-body">
+            <div class="row mb-2">
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card bg-primary text-white text-center p-3 h-100">
+                        <small>Total de órdenes</small>
+                        <h2 class="mb-0">{{ total_ordenes }}</h2>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card bg-warning text-dark text-center p-3 h-100">
+                        <small>Órdenes pendientes</small>
+                        <h2 class="mb-0">{{ ordenes_pendientes }}</h2>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card bg-success text-white text-center p-3 h-100">
+                        <small>Equipos listos</small>
+                        <h2 class="mb-0">{{ ordenes_listas }}</h2>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-3">
+                    <div class="card bg-info text-white text-center p-3 h-100">
+                        <small>Órdenes entregadas</small>
+                        <h2 class="mb-0">{{ ordenes_entregadas }}</h2>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="card bg-secondary text-white p-3">
